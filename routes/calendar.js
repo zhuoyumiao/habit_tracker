@@ -48,10 +48,10 @@ router.get("/:id/habits.ics", async (req, res) => {
     completed: done.has(h._id.toString()),
   }));
 
-  const completed = list.filter((x) => x.completed);
+  const completed = list.filter((x) => !x.completed);
 
   const events = completed.map((c) => ({
-    start: [today.getFullYear(), today.getMonth() + 1, today.getDate(), 0, 0], // month +1 (ics months are 1-based)
+    start: [today.getFullYear(), today.getMonth() + 1, today.getDate(), 0, 0],
     duration: { hours: 24, minutes: 0 },
     title: c.name,
     location: "Habit Tracker",
@@ -62,6 +62,7 @@ router.get("/:id/habits.ics", async (req, res) => {
       trigger: { hours: -(24 - i * 2), minutes: 0, before: true },
       repeat: 0,
     })),
+    timeZone: "America/New_York",
   }));
 
   createEvents(events, (error, value) => {
