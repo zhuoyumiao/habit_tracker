@@ -7,7 +7,8 @@ import { connectDB } from "./db/connect.js";
 import habitsRouter from "./routes/habits.js";
 import todayRouter from "./routes/today.js";
 import statsRouter from "./routes/stats.js";
-
+import authRouter from "./routes/authentication.js";
+import authenticateRouter from "./middleware/authenticate.js";
 dotenv.config();
 
 const app = express();
@@ -20,10 +21,12 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(express.json());
 
+app.use("/api/**", authenticateRouter);
 // API routes
 app.use("/api/habits", habitsRouter);
 app.use("/api/today", todayRouter);
 app.use("/api/stats", statsRouter);
+app.use("/api/auth", authRouter);
 
 // 404 for API
 app.use("/api", (_req, res) => res.status(404).json({ error: "Not found" }));
