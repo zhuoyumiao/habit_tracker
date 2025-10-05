@@ -5,8 +5,8 @@ import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import { connectDB } from "./db/connect.js";
 import habitsRouter from "./routes/habits.js";
-//import todayRouter from "./routes/today.js";
-//import statsRouter from "./routes/stats.js";
+import todayRouter from "./routes/today.js";
+import statsRouter from "./routes/stats.js";
 
 dotenv.config();
 
@@ -22,8 +22,8 @@ app.use(express.json());
 
 // API routes
 app.use("/api/habits", habitsRouter);
-//app.use("/api/today", todayRouter);
-//app.use("/api/stats", statsRouter);
+app.use("/api/today", todayRouter);
+app.use("/api/stats", statsRouter);
 
 // 404 for API
 app.use("/api", (_req, res) => res.status(404).json({ error: "Not found" }));

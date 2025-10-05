@@ -30,7 +30,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-// DELETE /api/habits/:id — delete habit (and related checkins if desired)
+// DELETE /api/habits/:id — delete habit (and related checkin)
 router.delete("/:id", async (req, res, next) => {
   try {
     const id = new ObjectId(req.params.id);

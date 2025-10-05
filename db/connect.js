@@ -18,7 +18,7 @@ export async function connectDB() {
   await client.connect();
   db = client.db(dbName);
 
-  // Ensure indexes once
+  // Indexes
   await db
     .collection("checkins")
     .createIndex({ habitId: 1, date: 1 }, { unique: true });
@@ -28,6 +28,7 @@ export async function connectDB() {
   return db;
 }
 
+// Get db or return error
 export function getDB() {
   if (!db) throw new Error("DB not initialized. Call connectDB() first.");
   return db;
