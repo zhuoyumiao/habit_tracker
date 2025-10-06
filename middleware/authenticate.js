@@ -3,7 +3,7 @@ import { Router } from "express";
 import jwt from "jsonwebtoken";
 const router = Router();
 
-router.post(async (req, res, next) => {
+export default async function authenticate(req, res, next) {
   try {
     const token = req.headers.authorization;
     if (!token) return res.status(401).json({ error: "Unauthorized" });
@@ -13,6 +13,4 @@ router.post(async (req, res, next) => {
   } catch (e) {
     next(e);
   }
-});
-
-export default router;
+}

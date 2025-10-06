@@ -8,7 +8,7 @@ import habitsRouter from "./routes/habits.js";
 import todayRouter from "./routes/today.js";
 import statsRouter from "./routes/stats.js";
 import authRouter from "./routes/authentication.js";
-import authenticateRouter from "./middleware/authenticate.js";
+import authenticate from "./middleware/authenticate.js";
 dotenv.config();
 
 const app = express();
@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(express.json());
 
-app.use("/api/**", authenticateRouter);
+app.use("/api", authenticate);
 // API routes
 app.use("/api/habits", habitsRouter);
 app.use("/api/today", todayRouter);
