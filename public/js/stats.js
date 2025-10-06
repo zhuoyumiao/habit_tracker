@@ -1,4 +1,6 @@
 // js/stats.js
+import { api } from "./api.js";
+
 // Small helpers
 const $ = (id) => document.getElementById(id);
 
