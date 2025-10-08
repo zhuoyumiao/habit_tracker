@@ -3,31 +3,34 @@ import { Router } from "express";
 import { getDB } from "../db/connect.js";
 import bcrypt from "bcrypt";
 const router = Router();
+import jwt from "jsonwebtoken";
 
 router.post("/login", async (req, res, next) => {
   try {
-    const { username, password, name, email, lastLoginAt } = req.body;
-    const user = await getDB().collection("users").findOne({ username });
+    const { password, email } = req.body;
+    const user = await getDB().collection("users").findOne({ email });
 
     if (!user)
-      return res.status(401).json({ error: "Invalid username or password" });
+      return res.status(401).json({ error: "Invalid email or password" });
 
     bcrypt.compare(password, user.password, (err) => {
       if (err)
-        return res.status(401).json({ error: "Invalid username or password" });
+        return res.status(401).json({ error: "Invalid email or password" });
     });
 
-    const token = jwt.sign({ username }, process.env.JWT_SECRET);
+    const token = jwt.sign({ email }, process.env.JWT_SECRET);
 
-    res.header("Authorization", `Bearer ${token}`).json({
-      message: "Login successful",
-      user: {
-        username,
-        name,
-        email,
-        lastLoginAt,
-      },
-    });
+    res
+      .status(200)
+      .header("Authorization", `Bearer ${token}`)
+      .json({
+        message: "Login successful",
+        user: {
+          name: user.name,
+          email,
+          lastLoginAt: new Date(),
+        },
+      });
   } catch (e) {
     next(e);
   }
@@ -35,9 +38,9 @@ router.post("/login", async (req, res, next) => {
 
 router.post("/register", async (req, res, next) => {
   try {
-    const { username, password, name, email } = req.body;
+    const { password, name, email } = req.body;
 
-    const user = await getDB().collection("users").findOne({ username });
+    const user = await getDB().collection("users").findOne({ email });
 
     if (user)
       return res.status(400).json({
@@ -45,7 +48,6 @@ router.post("/register", async (req, res, next) => {
       });
 
     await getDB().collection("users").insertOne({
-      username,
       password,
       name,
       email,
@@ -54,10 +56,9 @@ router.post("/register", async (req, res, next) => {
       lastLoginAt: new Date(),
     });
 
-    res.json({
+    res.status(201).json({
       message: "Registration successful",
       user: {
-        username,
         name,
         email,
       },

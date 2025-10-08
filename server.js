@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(express.json());
 
-app.use("/api/**", authenticateRouter);
+app.use("/api", authenticateRouter);
 // API routes
 app.use("/api/habits", habitsRouter);
 app.use("/api/today", todayRouter);
