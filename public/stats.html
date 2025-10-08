@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body class="bg-light">
+    <!-- Top Nav -->
     <div class="container-fluid pt-3">
       <div class="d-flex align-items-center justify-content-between w-100">
         <div class="d-flex align-items-center">
@@ -48,25 +49,30 @@
             data-bs-toggle="dropdown"
           >
             <span class="status-dot"></span>
-            <span>👤 asdf</span>
+            <span>👤</span><span id="display-fullName"></span>
           </div>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-custom">
             <li class="user-info">
               <div class="d-flex align-items-center mb-2">
                 <div class="user-avatar">👤</div>
                 <div>
-                  <div class="fw-bold">asdf</div>
-                  <div class="text-muted small">asdf@asdf.com</div>
+                  <div id="fullName" class="fw-bold"></div>
+                  <div id="email" class="text-muted small"></div>
                 </div>
               </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="small">Status</span>
-                <span class="status-badge">Active</span>
-              </div>
             </li>
-            <li><a class="dropdown-item py-2" href="#">⚙️ Settings</a></li>
             <li>
-              <a class="dropdown-item py-2 text-danger" href="#">🚪 Sign Out</a>
+              <button class="dropdown-item py-2 px-1 rounded" id="settings">
+                <i class="bi bi-gear"></i> Settings
+              </button>
+            </li>
+            <li>
+              <button
+                class="dropdown-item py-2 px-1 text-danger rounded"
+                id="signOut"
+              >
+                <i class="bi bi-box-arrow-right"></i> Sign Out
+              </button>
             </li>
           </ul>
         </div>
@@ -158,29 +164,13 @@
       </div>
     </div>
 
-    <!-- Best Performing Habit -->
-    <div class="card best-card border-0 shadow-sm mt-4">
-      <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-          <div class="fw-semibold">Best Performing Habit</div>
-          <span class="badge badge-soft rounded-pill px-3 py-2">
-            <i class="bi bi-trophy-fill me-1"></i> Champion
-          </span>
-        </div>
-        <div id="best-wrap" class="d-flex align-items-center justify-content-between">
-          <div>
-            <div id="best-name" class="fw-bold fs-5">—</div>
-            <div id="best-sub" class="text-secondary small mt-1">—</div>
-          </div>
-          <div id="best-rate" class="fs-5 text-primary">—</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="module" src="/js/api.js"></script>
-  <script type="module" src="/js/stats.js"></script>
-</body>
+    <!-- Scripts -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script type="module" src="/js/api.js"></script>
+    <script type="module" src="/js/stats.js"></script>
+    <script type="module" src="/js/common.js"></script>
+  </body>
 </html>

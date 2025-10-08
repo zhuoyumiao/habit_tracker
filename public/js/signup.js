@@ -38,6 +38,9 @@ export default function register() {
           }, 3000);
         } else {
           window.location.href = "/index.html";
+
+          localStorage.setItem("fullName", data.user.name);
+          localStorage.setItem("email", data.user.email);
         }
       });
   });

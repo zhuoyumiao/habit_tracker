@@ -36,6 +36,9 @@ export default function login() {
             loginError.classList.add("d-none");
           }, 3000);
         } else {
+          window.location.reload();
+          localStorage.setItem("fullName", data.user.name);
+          localStorage.setItem("email", data.user.email);
           window.location.href = "/index.html";
         }
       });

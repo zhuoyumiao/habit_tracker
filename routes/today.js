@@ -8,23 +8,24 @@ function todayStr() {
 }
 
 // GET /api/today — list habits with today completion state
-router.get("/", async (_req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const db = getDB();
     const [habits, checkins] = await Promise.all([
       db
         .collection("habits")
-        .find({ isActive: { $ne: false } })
+        .find({ isActive: { $ne: false }, userId: req.user.id })
         .sort({ createdAt: 1 })
         .toArray(),
       db
         .collection("checkins")
-        .find({ date: todayStr(), completed: true })
+        .find({ date: todayStr(), completed: true, userId: req.user.id })
         .toArray(),
     ]);
 
     // today's habits list
     const done = new Set(checkins.map((c) => c.habitId.toString()));
+
     const list = habits.map((h) => ({
       _id: h._id,
       name: h.name,
@@ -63,7 +64,7 @@ router.post("/:habitId/toggle", async (req, res, next) => {
       return res.json({ completed: false });
     }
     await checkin.updateOne(
-      { habitId, date },
+      { habitId, date, userId: req.user.id },
       { $set: { completed: true, timestamp: new Date() } },
       { upsert: true }
     );

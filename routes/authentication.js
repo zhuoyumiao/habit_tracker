@@ -17,7 +17,11 @@ router.post("/login", async (req, res, next) => {
     if (!result)
       return res.status(401).json({ error: "Invalid email or password" });
 
-    const token = jwt.sign({ email }, process.env.JWT_SECRET);
+    const token = jwt.sign({ email, id: user._id }, process.env.JWT_SECRET);
+
+    getDB()
+      .collection("users")
+      .updateOne({ _id: user._id }, { $set: { lastLoginAt: new Date() } });
 
     res
       .status(200)
@@ -47,7 +51,7 @@ router.post("/register", async (req, res, next) => {
         error: "Email already exists",
       });
 
-    await getDB()
+    const newUser = await getDB()
       .collection("users")
       .insertOne({
         password: bcrypt.hashSync(password, 10),
@@ -62,11 +66,10 @@ router.post("/register", async (req, res, next) => {
       .status(201)
       .header(
         "Authorization",
-        `Bearer ${jwt.sign({ email }, process.env.JWT_SECRET)}`
+        `Bearer ${jwt.sign({ email, id: newUser.insertedId }, process.env.JWT_SECRET)}`
       )
       .json({
         message: "Registration successful",
-        token: jwt.sign({ email }, process.env.JWT_SECRET),
         user: {
           name,
           email,
