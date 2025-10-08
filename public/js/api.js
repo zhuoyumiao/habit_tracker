@@ -1,22 +1,38 @@
 // Manage api
 const api = {
-  async get(url) {
-    const res = await fetch(url);
+  get: async (url) => {
+    const res = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      },
+    });
     if (!res.ok) throw new Error("Request failed");
     return res.json();
   },
-  async post(url, body) {
+  post: async (url, body) => {
     const res = await fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      },
       body: JSON.stringify(body || {}),
     });
     if (!res.ok) throw new Error("Request failed");
     return res.json();
   },
-  async del(url) {
-    const res = await fetch(url, { method: "DELETE" });
+  del: async (url) => {
+    const res = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      },
+    });
     if (!res.ok) throw new Error("Request failed");
     return res.json();
   },
 };
+
+export default api;

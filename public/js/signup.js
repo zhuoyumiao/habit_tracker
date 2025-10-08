@@ -1,16 +1,16 @@
-export default function login() {
-  const loginForm = document.getElementById("loginForm");
+export default function register() {
+  const signupForm = document.getElementById("signupForm");
 
-  loginForm.addEventListener("submit", (e) => {
+  signupForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const formData = new FormData(loginForm);
+    const formData = new FormData(signupForm);
 
     const data = Object.fromEntries(formData);
 
     console.log(data);
 
-    fetch("/api/auth/login", {
+    fetch("/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,6 +18,8 @@ export default function login() {
       body: JSON.stringify(data),
     })
       .then((res) => {
+        console.log(res.headers);
+
         const authHeader = res.headers.get("Authorization");
         if (authHeader) {
           localStorage.setItem("authToken", authHeader.replace("Bearer ", ""));
@@ -26,14 +28,13 @@ export default function login() {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         if (data.error) {
-          const loginError = document.getElementById("loginError");
-          loginError.classList.remove("d-none");
-          loginError.textContent = data.error;
+          const signupError = document.getElementById("signupError");
+          signupError.classList.remove("d-none");
+          signupError.textContent = data.error;
 
           setTimeout(() => {
-            loginError.classList.add("d-none");
+            signupError.classList.add("d-none");
           }, 3000);
         } else {
           window.location.href = "/index.html";
@@ -42,4 +43,4 @@ export default function login() {
   });
 }
 
-login();
+register();

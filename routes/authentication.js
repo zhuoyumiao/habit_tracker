@@ -13,10 +13,9 @@ router.post("/login", async (req, res, next) => {
     if (!user)
       return res.status(401).json({ error: "Invalid email or password" });
 
-    bcrypt.compare(password, user.password, (err) => {
-      if (err)
-        return res.status(401).json({ error: "Invalid email or password" });
-    });
+    const result = bcrypt.compareSync(password, user.password);
+    if (!result)
+      return res.status(401).json({ error: "Invalid email or password" });
 
     const token = jwt.sign({ email }, process.env.JWT_SECRET);
 
@@ -25,6 +24,7 @@ router.post("/login", async (req, res, next) => {
       .header("Authorization", `Bearer ${token}`)
       .json({
         message: "Login successful",
+        token,
         user: {
           name: user.name,
           email,
@@ -44,25 +44,34 @@ router.post("/register", async (req, res, next) => {
 
     if (user)
       return res.status(400).json({
-        error: "Username already exists",
+        error: "Email already exists",
       });
 
-    await getDB().collection("users").insertOne({
-      password,
-      name,
-      email,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      lastLoginAt: new Date(),
-    });
-
-    res.status(201).json({
-      message: "Registration successful",
-      user: {
+    await getDB()
+      .collection("users")
+      .insertOne({
+        password: bcrypt.hashSync(password, 10),
         name,
         email,
-      },
-    });
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        lastLoginAt: new Date(),
+      });
+
+    res
+      .status(201)
+      .header(
+        "Authorization",
+        `Bearer ${jwt.sign({ email }, process.env.JWT_SECRET)}`
+      )
+      .json({
+        message: "Registration successful",
+        token: jwt.sign({ email }, process.env.JWT_SECRET),
+        user: {
+          name,
+          email,
+        },
+      });
   } catch (e) {
     next(e);
   }
