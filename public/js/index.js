@@ -1,5 +1,4 @@
-// js/index.js
-import { api } from './api.js';
+import api from "./api.js";
 
 // Small helpers
 const $ = (id) => document.getElementById(id);
@@ -68,7 +67,7 @@ async function render() {
   $("list").innerHTML = html;
 }
 
-// Toggle handler 
+// Toggle handler
 $("list").addEventListener("click", async (e) => {
   const btn = e.target.closest("button[data-toggle]");
   if (!btn) return;
@@ -80,6 +79,17 @@ $("list").addEventListener("click", async (e) => {
     console.error(err);
     alert("Action failed. Please try again.");
   }
+});
+
+// Sign out
+$("signOut").addEventListener("click", async () => {
+  localStorage.removeItem("authToken");
+  window.location.href = "/login.html";
+});
+
+// Settings
+$("settings").addEventListener("click", async () => {
+  window.location.href = "/settings.html";
 });
 
 // Initial load

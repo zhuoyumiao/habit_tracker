@@ -1,0 +1,255 @@
+.nav-pills .nav-link {
+  border-radius: 2rem;
+}
+.btn-xxl {
+  padding: 14px 18px;
+  font-weight: 600;
+  border-radius: 16px;
+}
+.habit-card {
+  border-radius: 1rem;
+}
+.muted {
+  color: #6b7280;
+}
+.streak i {
+  color: #ff6a00;
+}
+.pill {
+  border-radius: 1rem;
+}
+
+.metric {
+  border-radius: 1rem;
+}
+.metric .big {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.metric .sub {
+  color: #6b7280;
+}
+.best-card {
+  border-radius: 1rem;
+}
+.badge-soft {
+  background: #eef2ff;
+  color: #1f3edb;
+}
+
+.navbar-custom {
+  background-color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nav-tabs-custom {
+  border: none;
+  background-color: #f0f0f0;
+  border-radius: 30px;
+  padding: 4px;
+  display: inline-flex;
+}
+
+.nav-tabs-custom .nav-link {
+  border: none;
+  border-radius: 25px;
+  color: #666;
+  padding: 0.5rem 1.5rem;
+  margin: 0 2px;
+  transition: all 0.3s;
+}
+
+.nav-tabs-custom .nav-link.active {
+  background-color: white;
+  color: #000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-badge {
+  background-color: white;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+}
+
+.user-badge .status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #28a745;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.brand-logo {
+  width: 12px;
+  height: 12px;
+  background-color: #007bff;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.date-time-section {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.date-time-section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.date-time-section .time {
+  color: #666;
+  font-size: 1rem;
+}
+
+.progress-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.progress-card h5 {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.progress-card .trophy-icon {
+  margin-right: 0.5rem;
+}
+
+.completion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.progress-bar-custom {
+  height: 12px;
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  margin-bottom: 0.5rem;
+}
+
+.habit-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.habit-info {
+  display: flex;
+  align-items: center;
+}
+
+.habit-icon {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.habit-icon.blue {
+  background-color: #007bff;
+}
+
+.habit-icon.red {
+  background-color: #dc3545;
+}
+
+.check-in-btn {
+  border-radius: 10px;
+  padding: 0.6rem 2rem;
+  border: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.check-in-btn.btn-blue {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.check-in-btn.btn-red {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.check-circle {
+  width: 18px;
+  height: 18px;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.section-header {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.badge-count {
+  background-color: #f0f0f0;
+  color: #666;
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+.dropdown-menu-custom {
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  min-width: 250px;
+}
+
+.user-info {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 0.5rem;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #e3f2fd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2196f3;
+  font-size: 1.2rem;
+  margin-right: 0.75rem;
+}
+
+.status-badge {
+  background-color: #28a745;
+  color: white;
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+}
