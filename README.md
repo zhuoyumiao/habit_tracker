@@ -6,7 +6,12 @@ It enables users to create habits, record daily progress, visualize long-term pe
 ---
 
 ## 📸 Demo
-
+![Demo Screenshot1](images/demo1.png)
+![Demo Screenshot2](images/demo2.png)
+![Demo Screenshot3](images/demo3.png)
+![Demo Screenshot4](images/demo4.png)
+![Demo Screenshot5](images/demo5.png)
+![Demo Screenshot5](images/demo6.png)
 ---
 
 ## ⚙️ Tech Requirements
@@ -35,8 +40,6 @@ npm install
 ## 👩‍💻 Author & Link
 Author: Zhuoyu Miao & Chirag Suthar
 
-Website Link: 
-
 ---
 
 ## 📚 Reference to the Class
@@ -44,15 +47,12 @@ This project was created as part of the **CS5610 Web Development** course at Nor
 
 ---
 
-## 🎥 Video Demo
+## 📝 Resources:
+Website Link: 
+Design document: [DesignDocument](/DesignDocument.docx).
 Link of video demonstration: 
-
 Demonstration slide: 
 
 ---
-
-## 📝 Design Document
-You can read the full design document [here](/DesignDocument.docx).
-
----
-## 
+## 🤖 AI usage
+Used ChatGPT to help create script that generates the random records into the database(seed.js). Used the GPT-5 and prompt "Create 2000 records that have users, habits and checkins".

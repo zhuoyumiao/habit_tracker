@@ -1,6 +1,6 @@
 // routes/stats.js
 import { Router } from "express";
-import { getDB } from "../db/connect.js";
+import { getDB, ObjectId } from "../db/connect.js";
 const router = Router();
 
 const toDayKey = (d) => {
@@ -12,25 +12,26 @@ const todayStr = () => toDayKey(new Date());
 
 // GET /api/stats/overview
 // A more detailed overview from beginning to today
-router.get("/overview", async (_req, res, next) => {
+router.get("/overview", async (req, res, next) => {
   try {
     const db = getDB();
     const today = todayStr();
+    const userObjectId = new ObjectId(req.user.id);
 
     const [habits, checkins, todayDone] = await Promise.all([
       db
         .collection("habits")
-        .find({ isActive: { $ne: false } })
+        .find({ userId: userObjectId, isActive: { $ne: false } })
         .project({ name: 1 })
         .toArray(),
       db
         .collection("checkins")
-        .find({ completed: true, date: { $lte: today } })
+        .find({ userId: userObjectId, completed: true, date: { $lte: today } })
         .project({ habitId: 1, date: 1 })
         .toArray(),
       db
         .collection("checkins")
-        .countDocuments({ date: today, completed: true }),
+        .countDocuments({ userId: userObjectId, date: today, completed: true }),
     ]);
 
     const totalHabits = habits.length;

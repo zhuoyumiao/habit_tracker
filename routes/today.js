@@ -11,15 +11,23 @@ function todayStr() {
 router.get("/", async (req, res, next) => {
   try {
     const db = getDB();
+    const userObjectId = new ObjectId(req.user.id);
     const [habits, checkins] = await Promise.all([
       db
         .collection("habits")
-        .find({ isActive: { $ne: false }, userId: req.user.id })
+        .find({
+          userId: userObjectId,
+          isActive: { $ne: false },
+        })
         .sort({ createdAt: 1 })
         .toArray(),
       db
         .collection("checkins")
-        .find({ date: todayStr(), completed: true, userId: req.user.id })
+        .find({
+          userId: userObjectId,
+          date: todayStr(),
+          completed: true,
+        })
         .toArray(),
     ]);
 
@@ -55,16 +63,21 @@ router.post("/:habitId/toggle", async (req, res, next) => {
   try {
     const db = getDB();
     const habitId = new ObjectId(req.params.habitId);
+    const userObjectId = new ObjectId(req.user.id);
     const date = todayStr();
     const checkin = db.collection("checkins");
 
-    const existing = await checkin.findOne({ habitId, date });
+    const existing = await checkin.findOne({
+      userId: userObjectId,
+      habitId,
+      date,
+    });
     if (existing?.completed) {
-      await checkin.deleteOne({ _id: existing._id });
+      await checkin.deleteOne({ _id: existing._id, userId: userObjectId });
       return res.json({ completed: false });
     }
     await checkin.updateOne(
-      { habitId, date, userId: req.user.id },
+      { habitId, date, userId: userObjectId },
       { $set: { completed: true, timestamp: new Date() } },
       { upsert: true }
     );
