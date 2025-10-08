@@ -1,6 +1,6 @@
 /* global bootstrap */
 // /js/manage.js
-import { api } from "./api.js";
+import api from "./api.js";
 
 const elGrid = document.getElementById("grid");
 const elCount = document.getElementById("habitCount");
