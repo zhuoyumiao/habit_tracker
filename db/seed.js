@@ -10,12 +10,12 @@ const uri = process.env.MONGODB_URI;
 const dbName = process.env.DB_NAME;
 const client = new MongoClient(uri);
 
-const todayStr = () => new Date().toLocaleDateString("en-US");
+const todayStr = () => new Date().toLocaleDateString("en-CA");
 
 function randomDateStr() {
   const d = new Date();
   d.setDate(d.getDate() - Math.floor(Math.random() * 90));
-  return d.toLocaleDateString("en-US");
+  return d.toLocaleDateString("en-CA");
 }
 
 async function seed() {

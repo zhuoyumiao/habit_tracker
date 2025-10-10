@@ -4,7 +4,7 @@ import { getDB, ObjectId } from "../db/connect.js";
 const router = Router();
 
 function todayStr() {
-  return new Date().toLocaleDateString("en-US");
+  return new Date().toLocaleDateString("en-CA");
 }
 
 // GET /api/today — list habits with today completion state

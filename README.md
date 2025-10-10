@@ -6,12 +6,12 @@ It enables users to create habits, record daily progress, visualize long-term pe
 ---
 
 ## 📸 Demo
-![Demo Screenshot1](images/demo1.png)
-![Demo Screenshot2](images/demo2.png)
-![Demo Screenshot3](images/demo3.png)
-![Demo Screenshot4](images/demo4.png)
-![Demo Screenshot5](images/demo5.png)
-![Demo Screenshot5](images/demo6.png)
+![Demo Screenshot1](resources/images/demo1.png)
+![Demo Screenshot2](resources/images/demo2.png)
+![Demo Screenshot3](resources/images/demo3.png)
+![Demo Screenshot4](resources/images/demo4.png)
+![Demo Screenshot5](resources/images/demo5.png)
+![Demo Screenshot5](resources/images/demo6.png)
 ---
 
 ## ⚙️ Tech Requirements
@@ -48,10 +48,10 @@ This project was created as part of the **CS5610 Web Development** course at Nor
 ---
 
 ## 📝 Resources:
-Website Link: 
-Design document: [DesignDocument](/DesignDocument.docx).
-Link of video demonstration: 
-Demonstration slide: 
+Website Link:   
+Design document: [DesignDocument](/resources/DesignDocument.docx).  
+Link of video demonstration:   
+Demonstration slide:   
 
 ---
 ## 🤖 AI usage

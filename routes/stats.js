@@ -5,7 +5,7 @@ const router = Router();
 
 const toDayKey = (d) => {
   const date = new Date(d);
-  return date.toLocaleDateString("en-US");
+  return date.toLocaleDateString("en-CA");
 };
 
 const todayStr = () => toDayKey(new Date());
