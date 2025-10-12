@@ -48,10 +48,10 @@ This project was created as part of the **CS5610 Web Development** course at Nor
 ---
 
 ## 📝 Resources:
-Website Link:   
+Website Link: https://habit-tracker-zvl9.onrender.com/login.html
 Design document: [DesignDocument](/resources/DesignDocument.docx).  
 Link of video demonstration:   
-Demonstration slide:   
+Demonstration slide: https://docs.google.com/presentation/d/1oFbkMyNtLxhO0xkZ4HitTSgF7sZm_OGixDz4ZZujn7s/edit?usp=sharing   
 
 ---
 ## 🤖 AI usage
