@@ -62,7 +62,6 @@ router.get("/:id/habits.ics", async (req, res) => {
       trigger: { hours: -(24 - i * 2), minutes: 0, before: true },
       repeat: 0,
     })),
-    timeZone: "America/New_York",
   }));
 
   createEvents(events, (error, value) => {
