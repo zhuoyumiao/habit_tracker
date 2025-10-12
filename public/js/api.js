@@ -33,6 +33,18 @@ const api = {
     if (!res.ok) throw new Error("Request failed");
     return res.json();
   },
+  put: async (url, body) => {
+    const res = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      },
+      body: JSON.stringify(body || {}),
+    });
+    if (!res.ok) throw new Error("Request failed");
+    return res.json();
+  },
 };
 
 export default api;

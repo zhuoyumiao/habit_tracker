@@ -16,8 +16,11 @@ function cardTemplate(h) {
   return `
 <div class="card p-3 mb-3">
   <div class="d-flex justify-content-between align-items-center">
-    <span>${h.name}</span>
+  <span>${h.name}</span>
+  <div class="btn-group">
+    <button class="btn btn-sm btn-outline-secondary" data-edit="${h._id}" data-name="${h.name}">Edit</button>
     <button class="btn btn-sm btn-outline-danger" data-del="${h._id}">Delete</button>
+  </div>
   </div>
 </div>
 `;
@@ -54,6 +57,22 @@ elGrid.addEventListener("click", async (e) => {
   if (!confirm("Delete this habit?")) return;
   await api.del(`/api/habits/${id}`);
   render();
+});
+
+// Click edit habit (rename)
+elGrid.addEventListener("click", async (e) => {
+  const btn = e.target.closest("[data-edit]");
+  if (!btn) return;
+  const id = btn.getAttribute("data-edit");
+  const oldName = btn.getAttribute("data-name") || "";
+
+  const newName = prompt("Rename this habit:", oldName);
+  if (newName === null) return;
+  const name = newName.trim();
+  if (!name || name === oldName.trim()) return;
+
+  await api.put(`/api/habits/${id}`, { name });
+  await render();
 });
 
 render();
