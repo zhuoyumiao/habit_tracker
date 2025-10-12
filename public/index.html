@@ -13,70 +13,72 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body class="bg-light">
     <!-- Top Nav -->
-    <div class="container-fluid pt-3">
-      <div class="d-flex align-items-center justify-content-between w-100">
-        <div class="d-flex align-items-center">
-          <span class="brand-logo"></span>
-          <span class="fw-bold fs-5">Habit Tracker</span>
-        </div>
-        <ul
-          class="nav nav-pills justify-content-center bg-white p-2 rounded-4 shadow-sm gap-2"
-        >
-          <li class="nav-item">
-            <a class="nav-link active" href="/index.html"
-              ><i class="bi bi-bullseye"></i> Daily Check</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/stats.html"
-              ><i class="bi bi-bar-chart-line"></i> Statistics</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/manage.html"
-              ><i class="bi bi-gear"></i> Manage</a
-            >
-          </li>
-        </ul>
-        <div class="dropdown">
-          <div
-            class="user-badge d-flex align-items-center"
-            data-bs-toggle="dropdown"
-          >
-            <span class="status-dot"></span>
-            <span>👤</span><span id="display-fullName"></span>
+    <nav>
+      <div class="container pt-3">
+        <div class="d-flex align-items-center justify-content-between w-100">
+          <div class="d-flex align-items-center">
+            <span class="brand-logo"></span>
+            <span class="fw-bold fs-5">Habit Tracker</span>
           </div>
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-custom">
-            <li class="user-info">
-              <div class="d-flex align-items-center mb-2">
-                <div class="user-avatar">👤</div>
-                <div>
-                  <div id="fullName" class="fw-bold"></div>
-                  <div id="email" class="text-muted small"></div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <button class="dropdown-item py-2 px-1 rounded" id="settings">
-                <i class="bi bi-gear"></i> Settings
-              </button>
-            </li>
-            <li>
-              <button
-                class="dropdown-item py-2 px-1 text-danger rounded"
-                id="signOut"
+          <ul
+            class="nav nav-pills justify-content-center bg-white p-2 rounded-4 shadow-sm gap-2"
+          >
+            <li class="nav-item">
+              <a class="nav-link active" href="/index.html"
+                ><i class="bi bi-bullseye"></i> Daily Check</a
               >
-                <i class="bi bi-box-arrow-right"></i> Sign Out
-              </button>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/stats.html"
+                ><i class="bi bi-bar-chart-line"></i> Statistics</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/manage.html"
+                ><i class="bi bi-gear"></i> Manage</a
+              >
             </li>
           </ul>
+          <div class="dropdown">
+            <div
+              class="user-badge d-flex align-items-center"
+              data-bs-toggle="dropdown"
+            >
+              <span class="status-dot"></span>
+              <span>👤</span><span id="display-fullName"></span>
+            </div>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-custom">
+              <li class="user-info">
+                <div class="d-flex align-items-center mb-2">
+                  <div class="user-avatar">👤</div>
+                  <div>
+                    <div id="fullName" class="fw-bold"></div>
+                    <div id="email" class="text-muted small"></div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <button class="dropdown-item p-2 rounded" id="settings">
+                  <i class="bi bi-gear"></i> Settings
+                </button>
+              </li>
+              <li>
+                <button
+                  class="dropdown-item p-2 text-danger rounded"
+                  id="signOut"
+                >
+                  <i class="bi bi-box-arrow-right"></i> Sign Out
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </nav>
 
     <div class="container pb-5">
       <!-- Header: date & time -->
@@ -119,7 +121,6 @@
       type="module"
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     ></script>
-    <script type="module" src="/js/api.js"></script>
     <script type="module" src="/js/index.js"></script>
     <script type="module" src="/js/common.js"></script>
   </body>
