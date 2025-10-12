@@ -130,3 +130,21 @@ deleteAccountBtn.addEventListener("click", () => {
       console.error(err);
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("/api/calendar/get-calendar-url", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      $("calendarUrl").value = data.calendarUrl;
+    });
+
+  $("copyUrl").addEventListener("click", () => {
+    $("calendarUrl").select();
+    document.execCommand("copy");
+  });
+});
