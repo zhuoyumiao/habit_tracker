@@ -12,9 +12,8 @@ It enables users to create habits, record daily progress, visualize long-term pe
 ![Demo Screenshot4](resources/images/demo4.png)
 ![Demo Screenshot5](resources/images/demo5.png)
 ![Demo Screenshot5](resources/images/demo6.png)
-![Demo Screenshot5](resources/images/demo7.png)
 ![Demo Screenshot5](resources/images/demo8.png)
-![Demo Screenshot5](resources/images/demo9.png)
+![Demo Screenshot5](resources/images/demo7.png)
 ![Demo Screenshot5](resources/images/demo10.png)
 ---
 
