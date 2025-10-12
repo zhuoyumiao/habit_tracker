@@ -50,15 +50,15 @@
               data-bs-toggle="dropdown"
             >
               <span class="status-dot"></span>
-              <span>👤</span><span id="display-fullName">werf</span>
+              <span>👤</span><span id="display-fullName"></span>
             </div>
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-custom">
               <li class="user-info">
                 <div class="d-flex align-items-center mb-2">
                   <div class="user-avatar">👤</div>
                   <div>
-                    <div id="fullName" class="fw-bold">werf</div>
-                    <div id="email" class="text-muted small">werf@asef.cpm</div>
+                    <div id="fullName" class="fw-bold"></div>
+                    <div id="email" class="text-muted small"></div>
                   </div>
                 </div>
               </li>
@@ -93,14 +93,14 @@
 
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label for="emailAddress" class="form-label fw-medium"
+              <label for="emailSettings" class="form-label fw-medium"
                 >Email Address</label
               >
               <input
                 type="email"
                 class="form-control"
-                id="emailAddress"
-                value="werf@asef.cpm"
+                id="emailSettings"
+                name="emailSettings"
                 disabled
               />
               <div class="form-text text-muted">
@@ -108,20 +108,26 @@
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="fullName" class="form-label fw-medium"
-                >Full Name</label
-              >
+              <label for="fullNameSettings" class="form-label fw-medium">
+                Full Name
+              </label>
               <input
                 type="text"
                 class="form-control"
-                id="fullName"
-                value="werf"
+                id="fullNameSettings"
+                name="fullNameSettings"
               />
             </div>
           </div>
 
-          <button type="button" class="btn btn-secondary btn-update">
-            <i class="bi bi-check-lg me-2"></i>Update Name
+          <button
+            type="button"
+            class="btn btn-secondary btn-update"
+            id="updateName-btn"
+            disabled
+          >
+            <i class="bi bi-check-lg me-2"></i>
+            Update Name
           </button>
         </div>
       </div>
@@ -139,9 +145,9 @@
 
           <div class="row">
             <div class="col-md-4 mb-3">
-              <label for="currentPassword" class="form-label fw-medium"
-                >Current Password</label
-              >
+              <label for="currentPassword" class="form-label fw-medium">
+                Current Password
+              </label>
               <input
                 type="password"
                 class="form-control"
@@ -150,9 +156,9 @@
               />
             </div>
             <div class="col-md-4 mb-3">
-              <label for="newPassword" class="form-label fw-medium"
-                >New Password</label
-              >
+              <label for="newPassword" class="form-label fw-medium">
+                New Password
+              </label>
               <input
                 type="password"
                 class="form-control"
@@ -161,9 +167,9 @@
               />
             </div>
             <div class="col-md-4 mb-3">
-              <label for="confirmPassword" class="form-label fw-medium"
-                >Confirm New Password</label
-              >
+              <label for="confirmPassword" class="form-label fw-medium">
+                Confirm New Password
+              </label>
               <input
                 type="password"
                 class="form-control"
@@ -173,8 +179,14 @@
             </div>
           </div>
 
-          <button type="button" class="btn btn-dark btn-update">
-            <i class="bi bi-check-lg me-2"></i>Update Password
+          <button
+            type="button"
+            class="btn btn-secondary btn-update"
+            id="updatePassword-btn"
+            disabled
+          >
+            <i class="bi bi-check-lg me-2"></i>
+            Update Password
           </button>
         </div>
       </div>
@@ -199,7 +211,7 @@
                 type="text"
                 class="form-control"
                 id="calendarUrl"
-                value="webcal://habittracker.app/calendar/1760278277329/habits.ics"
+                value="https://habittracker.app/api/calendar/:id/habits.ics"
                 readonly
               />
               <button
@@ -234,8 +246,13 @@
           </div>
           <p class="text-muted mb-4">Irreversible and destructive actions.</p>
 
-          <button type="button" class="btn btn-danger btn-delete">
-            <i class="bi bi-trash me-2"></i>Delete Account
+          <button
+            type="button"
+            class="btn btn-danger btn-delete"
+            id="deleteAccount-btn"
+          >
+            <i class="bi bi-trash me-2"></i>
+            Delete Account
           </button>
         </div>
       </div>

@@ -81,17 +81,6 @@ $("list").addEventListener("click", async (e) => {
   }
 });
 
-// Sign out
-$("signOut").addEventListener("click", async () => {
-  localStorage.removeItem("authToken");
-  window.location.href = "/login.html";
-});
-
-// Settings
-$("settings").addEventListener("click", async () => {
-  window.location.href = "/settings.html";
-});
-
 // Initial load
 // Live clock for time subtitle
 render();
