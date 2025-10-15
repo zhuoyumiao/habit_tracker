@@ -68,4 +68,9 @@ Used ChatGPT to help create script that generates the random records into the da
 
 ---
 ## Database records
-There are 50 users + 50 * 10 habits + 1500 checkins = 2050 records in total, which has been stated in the Desgin Document.[DesignDocument](/resources/DesignDocument.docx). 
+There are 50 users + 50 * 10 habits + 1500 checkins = 2050 records in total.
+![Database Screenshot1](resources/images/database.png)
+
+---
+## CRUD operations
+User and Habit have CRUD operations supported.
