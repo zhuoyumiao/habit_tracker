@@ -74,3 +74,7 @@ There are 50 users + 50 * 10 habits + 1500 checkins = 2050 records in total.
 ---
 ## CRUD operations
 User and Habit have CRUD operations supported.
+
+---
+## Instructions to use 
+Daily habit functions are easy to use and every functions have brief explanation in the page. Calendar function has instruction below.
