@@ -65,3 +65,7 @@ Demonstration slide: https://docs.google.com/presentation/d/1oFbkMyNtLxhO0xkZ4Hi
 ---
 ## 🤖 AI usage
 Used ChatGPT to help create script that generates the random records into the database(seed.js). Used the GPT-5 and prompt "Create 2000 records that have users, habits and checkins".
+
+---
+## Database records
+There are 50 users + 50 * 10 habits + 1500 checkins = 2050 records in total, which has been stated in the Desgin Document.[DesignDocument](/resources/DesignDocument.docx). 
