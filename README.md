@@ -34,6 +34,11 @@ cd habit_tracker
 # If dependencies exist (optional)
 npm install
 
+# Create a .env file in the root directory:
+PORT=3000
+MONGODB_URI=<your Mongo connection string>
+DB_NAME=<your db name>
+
 # Open login.html directly in the browser
 # or use a simple local server
 npm start
